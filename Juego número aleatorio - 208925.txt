@@ -1,0 +1,50 @@
+func validar_numeros() -> Int {
+
+    let numero_aleatorio = Int.random(in: 1..<100)
+
+    var numero_usuario: Int? = nil
+
+    var contador = 0
+
+    while numero_usuario != numero_aleatorio {
+
+        print("Elige un número entre 1 y 99:")
+
+        if let entrada = readLine(), let num = Int(entrada) {
+
+            numero_usuario = num
+
+            contador += 1
+
+            if numero_usuario! < numero_aleatorio {
+
+                print("TODO WEY JAJAJAJA, intenta un número más alto.")
+
+            } else if numero_usuario! > numero_aleatorio {
+
+                print("TE PASASTES WEY JAJAJAJAJA, intenta un número más bajo.")
+
+            } else {
+
+                print("YA COJA WEY, LLEVAS MIL AÑOS AQUI... Intentos: \(contador)")
+
+                return numero_usuario!
+
+            }
+
+        } else {
+
+            print("Entrada inválida, por favor ingresa un número válido.")
+
+        }
+
+    }
+ 
+    return numero_aleatorio
+
+}
+
+let juego = validar_numeros()
+
+print("Juego terminado, número adivinado: \(juego)...")
+ 
